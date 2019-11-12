@@ -16,7 +16,6 @@
 
 import fs = require('fs-extra');
 import path = require('path');
-import cp = require('child_process');
 
 export function rebuild(target: 'electron' | 'browser', modules: string[]): void {
     const nodeModulesPath = path.join(process.cwd(), 'node_modules');
@@ -43,12 +42,7 @@ export function rebuild(target: 'electron' | 'browser', modules: string[]): void
         try {
             pack.dependencies = Object.assign({}, pack.dependencies, dependencies);
             fs.writeFileSync(packFile, JSON.stringify(pack, undefined, '  '));
-            const electronRebuildPath = path.join(process.cwd(), 'node_modules', '.bin', 'electron-rebuild');
-            if (process.platform === 'win32') {
-                cp.spawnSync('cmd', ['/c', electronRebuildPath]);
-            } else {
-                require(electronRebuildPath);
-            }
+            require('electron-rebuild/lib/src/cli.js');
         } finally {
             setTimeout(() => {
                 fs.writeFile(packFile, packageText);
