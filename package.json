@@ -75,6 +75,7 @@
   "workspaces": [
     "dev-packages/*",
     "packages/*",
+    "extensions/*",
     "examples/*"
   ]
 }

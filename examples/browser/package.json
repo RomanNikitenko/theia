@@ -59,7 +59,8 @@
     "@theia/typescript": "^0.12.0",
     "@theia/userstorage": "^0.12.0",
     "@theia/variable-resolver": "^0.12.0",
-    "@theia/workspace": "^0.12.0"
+    "@theia/workspace": "^0.12.0",
+    "task-extension": "0.1.0"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn build",

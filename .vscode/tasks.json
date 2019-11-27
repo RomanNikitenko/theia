@@ -1,0 +1,37 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "command": "sleep 1 && echo execution of SHELL task is success",
+            "label": "SHELL task",
+            "problemMatcher": []
+        },
+        {
+            "type": "che",
+            "command": "sleep 1 && echo execution of CHE task is success",
+            "label": "CHE task",
+            "target": {
+                "component": "ffff",
+                "workingDir": ""
+            },
+            "options": {
+                "cwd": "/home"
+            },
+            "problemMatcher": []
+        },
+        {
+            "type": "exec",
+            "command": "sleep 1 && echo execution of EXEC task is success",
+            "label": "EXEC task",
+            "arg": "test arg",
+            "exe": "test value",
+            "options": {
+                "cwd": "/home"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
